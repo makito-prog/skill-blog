@@ -1,0 +1,14 @@
+/* src/App.css */
+.App {
+    text-align: center;
+  }
+  
+  .home-title {
+    color: #333;
+  }
+  
+  .home-content {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
