@@ -1,9 +1,7 @@
 // src/components/Home.js
-import React, { useContext, useState } from 'react';
-import { BlogContext } from '../context/BlogContext';
+import React, { useState } from 'react';
 
 const Home = () => {
-  const { blogs, setBlogs } = useContext(BlogContext);
   const [newBlog, setNewBlog] = useState({ title: '', content: '' });
 
   const handleInputChange = (e) => {
@@ -11,16 +9,12 @@ const Home = () => {
     setNewBlog({ ...newBlog, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setBlogs([...blogs, { ...newBlog, id: blogs.length + 1 }]);
-    setNewBlog({ title: '', content: '' });
-  };
+
 
   return (
     <div>
       <h1>Welcome to My Tech Blog</h1>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
           <label>Title:</label>
           <input 
@@ -43,12 +37,10 @@ const Home = () => {
         <button type="submit">Add Blog Post</button>
       </form>
       <div className="blog-posts">
-        {blogs.map(blog => (
-          <div className="blog-post" key={blog.id}>
-            <h2>{blog.title}</h2>
-            <p>{blog.content}</p>
+          <div className="blog-post">
+            <h2>タイトル</h2>
+            <p>内容</p>
           </div>
-        ))}
       </div>
     </div>
   );
