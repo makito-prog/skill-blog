@@ -2,13 +2,14 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const Thread = require("./models/Thread");
+const API_Key = process.env.API_KEY
 
 const PORT = 3000;
 
 app.use(express.static("public"));
 
 mongoose.connect(
-    "mongodb+srv://makito:makito2628@cluster0.1ygsfkh.mongodb.net/"
+    `mongodb+srv://makito:${API_Key}@cluster0.1ygsfkh.mongodb.net/`
 ).then(() => console.log("db connected")
 ).catch((err) => console.log(err));
 
