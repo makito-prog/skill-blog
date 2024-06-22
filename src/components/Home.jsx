@@ -1,8 +1,23 @@
 // src/components/Home.js
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const Home = () => {
   const [newBlog, setNewBlog] = useState({ title: '', content: '' });
+
+
+  const getAllThreads = async () => {
+    try {
+      let allThreads = await axios.get("/api/threads")
+      console.log(allThreads);
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    getAllThreads()
+  }, [])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
