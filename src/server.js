@@ -14,7 +14,7 @@ app.use(express.json()); // JSONパース用のミドルウェア
 console.log("Starting server...");
 
 mongoose.connect(
-    `mongodb+srv://makito:makito2628@cluster0.1ygsfkh.mongodb.net/`
+    `mongodb+srv://makito:${API_Key}@cluster0.1ygsfkh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 ).then(() => {
     console.log("db connected");
     app.listen(PORT, () => console.log(`server running on port ${PORT}`));
